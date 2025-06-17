@@ -392,7 +392,7 @@ class ModMail(commands.Cog):
         # Check account age
         min_age = requirements.get("min_account_age", 0)
         if min_age > 0:
-            account_age = (datetime.utcnow() - user.created_at).total_seconds()
+            account_age = (discord.utils.utcnow() - user.created_at).total_seconds()
             if account_age < min_age:
                 return False
                 
@@ -405,7 +405,7 @@ class ModMail(commands.Cog):
             # Check server join age
             min_server_age = requirements.get("min_server_age", 0)
             if min_server_age > 0:
-                join_age = (datetime.utcnow() - member.joined_at).total_seconds()
+                join_age = (discord.utils.utcnow() - member.joined_at).total_seconds()
                 if join_age < min_server_age:
                     return False
                     
