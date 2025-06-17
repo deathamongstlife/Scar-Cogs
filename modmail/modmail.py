@@ -1,13 +1,3 @@
-# Advanced Modmail System for Red-DiscordBot
-# File: modmail/__init__.py
-
-from .modmail import AdvancedModmail
-
-async def setup(bot):
-    await bot.add_cog(AdvancedModmail(bot))
-
-# File: modmail/modmail.py
-
 import discord
 from discord.ext import tasks
 from redbot.core import commands, Config, modlog, checks
@@ -43,7 +33,7 @@ class ModmailExtension(ABC):
         """Called when thread is closed"""
         pass
 
-class AdvancedModmail(commands.Cog):
+class ModMail(commands.Cog):
     """
     Advanced Modmail System with Plugin Support
     
@@ -1466,20 +1456,3 @@ class AdvancedModmail(commands.Cog):
         else:
             log.exception(f"Unhandled error in modmail: {error}")
 
-# File: modmail/info.json
-
-{
-    "name": "AdvancedModmail",
-    "short": "Comprehensive modmail system with plugin support",
-    "description": "A full-featured modmail system for Red-DiscordBot including DM forwarding, thread management, staff collaboration tools, user blocking, snippet responses, and extensible plugin architecture.",
-    "end_user_data_statement": "This cog stores user IDs, message content, timestamps, and modmail thread data. Data is used for modmail functionality and can be deleted upon request.",
-    "install_msg": "Thanks for installing Advanced Modmail! Use `[p]modmail setup` to get started. For support and documentation, visit: https://github.com/your-repo/advanced-modmail",
-    "author": ["Advanced Modmail Team"],
-    "required_python_version": [3, 8, 1],
-    "hidden": false,
-    "disabled": false,
-    "min_bot_version": "3.5.0",
-    "tags": ["modmail", "support", "tickets", "communication", "moderation"],
-    "requirements": [],
-    "type": "COG"
-}
